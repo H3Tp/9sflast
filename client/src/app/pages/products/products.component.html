@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="row">
+    <h2>Products</h2>
+    <a routerLink="/products/new" class="btn">+ Add</a>
+  </div>
+
+  <div *ngIf="loading()">Loading...</div>
+  <div *ngIf="!loading() && items().length === 0">No products yet.</div>
+
+  <ul class="list" *ngIf="!loading() && items().length">
+    <li *ngFor="let p of items()">
+      <div class="item">
+        <div>
+          <div class="name">{{ p.name }}</div>
+          <div class="price">$ {{ p.price }}</div>
+        </div>
+        <div class="actions">
+          <a [routerLink]="['/products', p._id, 'edit']">Edit</a>
+          <button (click)="delete(p._id!)">Delete</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

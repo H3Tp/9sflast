@@ -1,0 +1,22 @@
+<div class="card">
+  <a routerLink="/products">← Back</a>
+  <h2>{{ isEdit() ? 'Edit' : 'Add' }} Product</h2>
+
+  <div *ngIf="errorMsg()" style="color:#b00020;margin:8px 0">{{ errorMsg() }}</div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      Name
+      <input formControlName="name" placeholder="Coffee">
+    </label>
+
+    <label>
+      Price
+      <input formControlName="price" type="number" step="0.01">
+    </label>
+
+    <button type="submit" [disabled]="form.invalid || saving()">
+      {{ saving() ? 'Saving…' : (isEdit() ? 'Update' : 'Create') }}
+    </button>
+  </form>
+</div>
