@@ -1,0 +1,6 @@
+{
+  "watch": ["server/src"],
+  "ext": "js,json",
+  "exec": "node",
+  "legacyWatch": true
+}

@@ -147,6 +147,7 @@ app.put("/api/products/:id", async (req, res) => {
       update.price = Number(req.body.price);
     }
     if (!Object.keys(update).length) return errJson(res, 400, "no_valid_fields");
+    
 
     setFallbackIfNoMongo();
 
